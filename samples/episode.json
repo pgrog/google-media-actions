@@ -1,0 +1,100 @@
+{
+  "@context": ["http://schema.org", {"@language": "en"}],
+  "@type": "TVEpisode",
+  "@id": "http://www.example.com/my_favorite_tv_show/s7/e14",
+  "url": "http://www.example.com/my_favorite_tv_show/s7/e14",
+  "name": "John Doe returns with a horse.",
+  "episodeNumber": 14,
+  "contentRating": "TVPG TV-MA",
+  "partOfSeason": {
+    "@type": "TVSeason",
+    "@id": "http://www.example.com/my_favorite_tv_show/s7",
+    "seasonNumber": 7
+  },
+  "partOfSeries": {
+    "@type": "TVSeries",
+    "@id": "http://www.example.com/my_favorite_tv_show",
+    "name": "My Favorite TV Show"
+  },
+  "potentialAction": {
+    "@type": "WatchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "http://www.example.com/my_favorite_tv_show/s7/e14?autoplay=true",
+      "inLanguage": "en",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.org/AndroidPlatform",
+        "http://schema.org/AndroidTVPlatform",
+        "http://schema.googleapis.com/GoogleVideoCast"
+      ]
+    },
+     "actionAccessibilityRequirement": {
+       "@type": "ActionAccessSpecification",
+       "category": "subscription",
+       "requiresSubscription": {
+          "@type": "MediaSubscription",
+          "name": "Example Package",
+          "commonTier": true,
+          "@id": "https://example.com/package/example"
+        },
+       "availabilityStarts": "2017-07-21T10:35:29Z",
+       "availabilityEnds": "2018-10-21T10:35:29Z",
+       "eligibleRegion": [
+         {
+            "@type": "Country",
+            "name": "US"
+         },
+         {
+            "@type": "Country",
+            "name": "CA"
+         }
+       ]
+    }
+  },
+  "duration": "PT00H25M",
+  "image": [{
+    "@context": "http://schema.org",
+    "@type": "ImageObject",
+    "name": "title + episodic",
+    "contentUrl": "http://example.com/images/mountain-view.jpg",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "contentAttributes",
+        "value": ["sceneStill", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo", "hasCopyright", "noMatte"]
+      }
+    ]
+},
+{
+    "@context": "http://schema.org",
+    "@type": "ImageObject",
+    "name": "title + episodic",
+    "contentUrl": "http://example.com/images/mountain-view.jpg",
+    "additionalProperty": [
+      {
+        "@type": "PropertyValue",
+        "name": "contentAttributes",
+        "value": ["sceneStill", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo", "hasCopyright", "noMatte"]
+      }
+    ]
+}
+],
+  "releasedEvent": {
+    "@type": "PublicationEvent",
+    "startDate": "2014-01-09",
+    "location": {
+      "@type": "Country",
+      "name": "US"
+    }
+  },
+  "popularityScore": {
+    "@type": "PopularityScoreSpecification",
+    "value": 3.9,
+    "eligibleRegion": "EARTH"
+  },
+  "description": "John Doe returns to the village three years after his disappearance."
+
+}

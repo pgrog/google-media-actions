@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:a="http://www.w3.org/2005/Atom" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dfpvideo="http://api.google.com/dfpvideo" xmlns:gCalendar="http://xml.apache.org/xslt/java/java.util.GregorianCalendar" xmlns:media="http://search.yahoo.com/mrss/" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:pllist="http://xml.theplatform.com/data/list" xmlns:plprogram="http://xml.theplatform.com/entertainment/data/Program" xmlns:rte="http://rte.ie/player/program" xmlns:sdf="http://xml.apache.org/xslt/java/java.text.SimpleDateFormat" xmlns:tz="http://xml.apache.org/xslt/java/java.util.TimeZone" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <channel>
+      <title>RTE - Google translation</title>
+      <dfpvideo:version>2</dfpvideo:version>
+      <thePlatformFeedMarker/>
+      <item>
+         <title>Father Ted S3 E8SkySTBHD</title>
+      </item>
+      <thePlatformFeedMarker/>
+   </channel>
+</rss>

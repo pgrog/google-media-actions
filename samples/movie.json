@@ -1,0 +1,95 @@
+{
+  "@context": ["http://schema.org", {"@language": "en"}],
+  "@type": "Movie",
+  "@id": "http://www.example.com/my_favorite_movie",
+  "url": "http://www.example.com/my_favorite_movie",
+  "name": "My Favorite Movie",
+  "potentialAction": {
+    "@type": "WatchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "http://www.example.com/my_favorite_movie?autoplay=true",
+      "inLanguage": "en",
+      "actionPlatform": [
+        "http://schema.org/DesktopWebPlatform",
+        "http://schema.org/MobileWebPlatform",
+        "http://schema.org/AndroidPlatform",
+        "http://schema.org/AndroidTVPlatform",
+        "http://schema.org/IOSPlatform",
+        "http://schema.googleapis.com/GoogleVideoCast"
+      ]
+    },
+    "actionAccessibilityRequirement": {
+      "@type": "ActionAccessSpecification",
+      "category": "subscription",
+      "availabilityStarts": "2018-07-21T10:35:29Z",
+      "availabilityEnds": "2019-10-21T10:35:29Z",
+      "requiresSubscription": {
+          "@type": "MediaSubscription",
+          "name": "Example Package",
+          "commonTier": true,
+          "@id": "https://example.com/package/example"
+      },
+      "eligibleRegion": [
+        {
+          "@type": "Country",
+          "name": "US"
+        },
+        {
+          "@type": "Country",
+          "name": "CA"
+        }
+      ]
+    }
+  },
+  "sameAs": "https://en.wikipedia.org/wiki/my_favorite_movie",
+  "contentRating": "RATING NOT KNOWN",
+  "releasedEvent": {
+    "@type": "PublicationEvent",
+    "startDate": "2008-01-20",
+    "location": {
+      "@type": "Country",
+      "name": "US"
+    }
+  },
+  "popularityScore": {
+    "@type": "PopularityScoreSpecification",
+    "value": 78,
+    "eligibleRegion": [
+      {
+        "@type": "Country",
+        "name": "US"
+      },
+      {
+        "@type": "Country",
+        "name": "CA"
+      }
+    ]
+  },
+  "description": "This is my favorite movie.",
+  "actor": [
+    {
+      "@type": "Person",
+      "name": "John Doe",
+      "sameAs": "https://en.wikipedia.org/wiki/John_Doe"
+    },
+    {
+      "@type": "Person",
+      "name": "Jane Doe",
+      "sameAs": "https://en.wikipedia.org/wiki/Jane_Doe"
+    }
+  ],
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "IMDB_ID",
+      "value":  "tt0123456"
+    }
+  ],
+  "workExample": {
+      "@type": "Movie",
+      "@id": "http://www.example.com/my_favorite_movie_extended_cut",
+      "name": "My Favorite Movie Extended Cut",
+      "category": "Extended Cut"
+  }
+}

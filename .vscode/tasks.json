@@ -1,0 +1,19 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "xslt-js",
+			"label": "xslt-js: Saxon-JS Transform (New)",
+			"xsltFile": "${workspaceFolder}/src/sky-google-mrss.xsl",
+			"xmlSource": "${workspaceFolder}/data/rss.xml",
+			"resultPath": "${workspaceFolder}/xslt-out/result1.xml",
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": [
+				"$saxon-xslt-js"
+			]
+		}
+	]
+}
