@@ -46,8 +46,7 @@
         <xsl:text>"dataFeedElement":[</xsl:text>
         <xsl:text>&lt;thePlatformFeedMarker/></xsl:text>
         <xsl:for-each select="a:feed/a:entry">
-            <xsl:choose>
-                <xsl:when test="rte:defaultThumbnail!=''">
+
                     
                     <xsl:text>{</xsl:text>
                     <!--
@@ -179,15 +178,26 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
-                            <xsl:if test="plprogram:tvSeasonId!=''">
+                            <xsl:if test="plprogram:tvSeasonNumber!=''">
                                 <xsl:text>  "partOfSeason": {
                     "@type": "TVSeason",
                     "@id": "</xsl:text>
                                 <xsl:call-template name="encodeTitle">
                                     <xsl:with-param name="type" select="'series'"/>
                                     <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
-                                </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>/season<xsl:value-of select="$seasonNumber"/>",
+                                </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>?seasonguid=<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>_<xsl:value-of select="format-number($seasonNumber,'00')"/>",
                                 <xsl:text>"seasonNumber":</xsl:text><xsl:value-of select="$seasonNumber"/>
+                                },
+                            </xsl:if>
+                            <xsl:if test="plprogram:tvSeasonNumber=''">
+                                <xsl:text>  "partOfSeason": {
+                    "@type": "TVSeason",
+                    "@id": "</xsl:text>
+                                <xsl:call-template name="encodeTitle">
+                                    <xsl:with-param name="type" select="'series'"/>
+                                    <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
+                                </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>?season=1",
+                                <xsl:text>"seasonNumber":1</xsl:text>
                                 },
                             </xsl:if>
                         </xsl:when>
@@ -407,60 +417,60 @@
                             
                             
                             "image": [
-
-                                {
-                                "@context": "http://schema.org",
-                                "@type": "ImageObject",
-                                "name": "<xsl:value-of select="$mpxTitle" /> episodic 16:9",
-                                "contentUrl": "<xsl:call-template name="imageFormat">
-                                    <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
-                                </xsl:call-template>",
-                                "additionalProperty": [
-                                {
-                                "@type": "PropertyValue",
-                                "name": "contentAttributes",
-                                "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
-                                }
-                                ]
-                                },
-                                
-                                {
-                                "@context": "http://schema.org",
-                                "@type": "ImageObject",
-                                "name": "<xsl:value-of select="$mpxTitle" /> episodic 2:3",
-                                "contentUrl": "<xsl:call-template name="imageFormatCrop">
-                                    <xsl:with-param name="width" select="'1000'"/>
-                                    <xsl:with-param name="height" select="'1500'"/>
-                                    <xsl:with-param name="gravity" select="'auto'"/>
-                                    <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
-                                </xsl:call-template>",
-                                "additionalProperty": [
-                                {
-                                "@type": "PropertyValue",
-                                "name": "contentAttributes",
-                                "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
-                                }
-                                ]
-                                },
-                                
-                                {
-                                "@context": "http://schema.org",
-                                "@type": "ImageObject",
-                                "name": "<xsl:value-of select="$mpxTitle" /> episodic 4:3",
-                                "contentUrl": "<xsl:call-template name="imageFormatCrop">
-                                    <xsl:with-param name="width" select="'800'"/>
-                                    <xsl:with-param name="height" select="'600'"/>
-                                    <xsl:with-param name="gravity" select="'top'"/>
-                                    <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
-                                </xsl:call-template>",
-                                "additionalProperty": [
-                                {
-                                "@type": "PropertyValue",
-                                "name": "contentAttributes",
-                                "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
-                                }
-                                ]
-                                }                     
+                            
+                            {
+                            "@context": "http://schema.org",
+                            "@type": "ImageObject",
+                            "name": "<xsl:value-of select="$mpxTitle" /> episodic 16:9",
+                            "contentUrl": "<xsl:call-template name="imageFormat">
+                                <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
+                            </xsl:call-template>",
+                            "additionalProperty": [
+                            {
+                            "@type": "PropertyValue",
+                            "name": "contentAttributes",
+                            "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
+                            }
+                            ]
+                            },
+                            
+                            {
+                            "@context": "http://schema.org",
+                            "@type": "ImageObject",
+                            "name": "<xsl:value-of select="$mpxTitle" /> episodic 2:3",
+                            "contentUrl": "<xsl:call-template name="imageFormatCrop">
+                                <xsl:with-param name="width" select="'1000'"/>
+                                <xsl:with-param name="height" select="'1500'"/>
+                                <xsl:with-param name="gravity" select="'auto'"/>
+                                <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
+                            </xsl:call-template>",
+                            "additionalProperty": [
+                            {
+                            "@type": "PropertyValue",
+                            "name": "contentAttributes",
+                            "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
+                            }
+                            ]
+                            },
+                            
+                            {
+                            "@context": "http://schema.org",
+                            "@type": "ImageObject",
+                            "name": "<xsl:value-of select="$mpxTitle" /> episodic 4:3",
+                            "contentUrl": "<xsl:call-template name="imageFormatCrop">
+                                <xsl:with-param name="width" select="'800'"/>
+                                <xsl:with-param name="height" select="'600'"/>
+                                <xsl:with-param name="gravity" select="'top'"/>
+                                <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
+                            </xsl:call-template>",
+                            "additionalProperty": [
+                            {
+                            "@type": "PropertyValue",
+                            "name": "contentAttributes",
+                            "value": ["iconic","poster", "background", "centered", "smallFormat", "largeFormat", "noTitle", "noLogo"]
+                            }
+                            ]
+                            }                     
                             ]
                             
                         </xsl:when>
@@ -597,7 +607,7 @@
                                 }
                                 
                             </xsl:if>
-                           
+                            
                             <xsl:if test="rte:thumbnails/rte:key= 'show_logo'">
                                 
                                 ,{
@@ -721,12 +731,11 @@
                             ]
                             
                         </xsl:when>
-                    </xsl:choose> 
+                    </xsl:choose>
                     
                     
                     <xsl:text>}</xsl:text>
-                </xsl:when>
-            </xsl:choose>
+
             
             <!-- Here we'll check to see if we're processing the last media of the last segment,
                  and if so we'll leave off the comma. Otherwise it gets inserted to separate this 
@@ -734,6 +743,7 @@
             <xsl:if test="position()!=last() or $tpIsLastSegment='false'">
                 <xsl:text>,</xsl:text>
             </xsl:if>
+
         </xsl:for-each>
         <!--
              And close out the marker after processing the items in the feed.
