@@ -229,9 +229,9 @@
                             "urlTemplate":"<xsl:call-template name="encodeTitleAndroidTv">
                                 <xsl:with-param name="type" select="'series'"/>
                                 <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
-                            </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>?epguid=<xsl:call-template name="guidFormat">
+                            </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>/play?epguid=<xsl:call-template name="guidFormat">
                                 <xsl:with-param name="id" select="a:id" mode="json-encode" />
-                            </xsl:call-template>/play",
+                            </xsl:call-template>",
                             "inLanguage": "en",
                             "actionPlatform": [
                             "http://schema.org/AndroidTVPlatform"
@@ -242,9 +242,9 @@
                             "urlTemplate":"<xsl:call-template name="encodeTitle">
                                 <xsl:with-param name="type" select="'series'"/>
                                 <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
-                            </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>?epguid=<xsl:call-template name="guidFormat">
+                            </xsl:call-template>/<xsl:apply-templates select="rte:relatedProgramGuid" mode="json-encode"/>/play?epguid=<xsl:call-template name="guidFormat">
                                 <xsl:with-param name="id" select="a:id" mode="json-encode" />
-                            </xsl:call-template>/play",
+                            </xsl:call-template>",
                             "inLanguage": "en",
                             "actionPlatform": [
                             "http://schema.org/DesktopWebPlatform",
@@ -284,8 +284,8 @@
                             "@type": "EntryPoint",
                             "urlTemplate":"<xsl:call-template name="encodeTitleAndroidTv">
                                 <xsl:with-param name="type" select="'series'"/>
-                                <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
-                            </xsl:call-template><xsl:call-template name="guidFormat">
+                                <xsl:with-param name="title" select="a:title" mode="json-encode" />
+                        </xsl:call-template>/<xsl:call-template name="guidFormat">
                                 <xsl:with-param name="id" select="a:id" mode="json-encode" />
                             </xsl:call-template>/play",
                             "inLanguage": "en",
@@ -297,8 +297,8 @@
                             "@type": "EntryPoint",
                             "urlTemplate":"<xsl:call-template name="encodeTitle">
                                 <xsl:with-param name="type" select="'series'"/>
-                                <xsl:with-param name="title" select="plprogram:longTitle" mode="json-encode" />
-                            </xsl:call-template><xsl:call-template name="guidFormat">
+                                <xsl:with-param name="title" select="a:title" mode="json-encode" />
+                        </xsl:call-template>/<xsl:call-template name="guidFormat">
                                 <xsl:with-param name="id" select="a:id" mode="json-encode" />
                             </xsl:call-template>/play",
                             "inLanguage": "en",
@@ -575,7 +575,7 @@
                                 "contentUrl": "<xsl:call-template name="imageFormatCrop">
                                     <xsl:with-param name="width" select="'1000'"/>
                                     <xsl:with-param name="height" select="'1500'"/>
-                                    <xsl:with-param name="gravity" select="'auto'"/>
+                                    <xsl:with-param name="gravity" select="'top'"/>
                                     <xsl:with-param name="image" select="rte:defaultThumbnail" mode="json-encode" />
                                 </xsl:call-template>",
                                 "additionalProperty": [
